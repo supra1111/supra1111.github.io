@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 İYİ Kİ DOĞDUN EYLÜL! 🎉</title>
+    <title>🎉 İYİ Kİ DOĞDUN CANIM ABLAM! 🎉</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
@@ -31,7 +31,7 @@
             position: relative;
         }
 
-        /* ARKA PLANA "İYİ Kİ DOĞDUN EYLÜL" YAZISI */
+        /* ARKA PLANA "İYİ Kİ DOĞDUN ABLAM" YAZISI */
         .bg-text {
             position: fixed;
             top: 0;
@@ -536,6 +536,63 @@
             position: relative;
         }
 
+        /* SÜRPİZ MODAL */
+        .surprise-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(0, 0, 0, 0.9);
+            border: 3px solid var(--primary);
+            border-radius: 25px;
+            padding: 40px;
+            z-index: 10000;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 50px rgba(255, 0, 102, 0.5);
+        }
+
+        .surprise-modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .surprise-modal h2 {
+            color: var(--accent);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .surprise-modal p {
+            color: white;
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .close-modal {
+            padding: 12px 35px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: var(--secondary);
+            transform: scale(1.05);
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .main-title { font-size: 3em; }
@@ -554,6 +611,7 @@
             .surprise-btn { padding: 15px 30px; font-size: 1.2em; }
             .heart-grid { grid-template-columns: 1fr; }
             .bg-text { font-size: 60px; }
+            .bg-text span { content: "İYİ Kİ DOĞDUN ABLAM"; }
             .explosion { font-size: 60px; }
         }
 
@@ -620,69 +678,12 @@
                 opacity: 0;
             }
         }
-
-        /* SÜRPİZ MODAL */
-        .surprise-modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            background: rgba(0, 0, 0, 0.9);
-            border: 3px solid var(--primary);
-            border-radius: 25px;
-            padding: 40px;
-            z-index: 10000;
-            text-align: center;
-            max-width: 600px;
-            width: 90%;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 50px rgba(255, 0, 102, 0.5);
-        }
-
-        .surprise-modal.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .surprise-modal h2 {
-            color: var(--accent);
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            font-family: 'Dancing Script', cursive;
-        }
-
-        .surprise-modal p {
-            color: white;
-            font-size: 1.3em;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .close-modal {
-            padding: 12px 35px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1.1em;
-            transition: all 0.3s;
-        }
-
-        .close-modal:hover {
-            background: var(--secondary);
-            transform: scale(1.05);
-        }
     </style>
 </head>
 <body>
     <!-- ARKA PLAN YAZISI -->
     <div class="bg-text">
-        <span>İYİ Kİ DOĞDUN EYLÜL</span>
+        <span>İYİ Kİ DOĞDUN ABLAM</span>
     </div>
 
     <!-- KALP ARKA PLAN -->
@@ -699,33 +700,38 @@
 
     <!-- SÜRPİZ MODAL -->
     <div class="surprise-modal" id="surpriseModal">
-        <h2>🎁 BİR SÜRPRİZİN VAR! 🎁</h2>
+        <h2>🎁 ABLAM İÇİN ÖZEL HEDİYE! 🎁</h2>
         <p>
-            <span style="font-size: 1.5em; color: var(--accent);">Sevgili Eylül,</span><br><br>
+            <span style="font-size: 1.5em; color: var(--accent);">Canım Ablam,</span><br><br>
             Doğum günün kutlu olsun! 🎂<br>
-            Senin için özel bir hediye hazırladım...<br><br>
+            Senin için çok özel bir hediye hazırladım...<br><br>
             
             <span style="color: var(--gold); font-weight: bold;">
-                🎯 HEDİYEN: <br>
-                "Seninle istediğin bir günü geçirme hakkı!"<br><br>
+                🎯 SENİN İÇİN HEDİYEM:<br>
+                "Ablamla Özel Bir Gün!"<br><br>
             </span>
             
-            İster sinema, ister alışveriş, ister yemek...<br>
-            Sen seç, ben ödeyeyim! 😉<br><br>
+            İstediğin yere gidelim, istediğini yapalım!<br>
+            🌸 Alışveriş, 🎬 Sinema, 🍕 Yemek, 🎳 Bowling...<br>
+            Sen seç, benimle geçir!<br><br>
             
             <span style="font-style: italic; color: #ff99cc;">
-                Tek şart: O gün bol bol gülmen! 😊
+                Tek koşulum: O gün bol bol gülmen ve mutlu olman! 😊
+            </span><br><br>
+            
+            <span style="color: var(--accent); font-size: 1.1em;">
+                Seni çok seviyorum ablacığım! ❤️
             </span>
         </p>
-        <button class="close-modal" onclick="closeModal()">Harika! Teşekkürler! ❤️</button>
+        <button class="close-modal" onclick="closeModal()">Harika Ablam! Teşekkürler! 💝</button>
     </div>
 
     <!-- ANA BÖLÜM -->
     <section class="hero-section">
-        <h1 class="main-title">İYİ Kİ DOĞDUN EYLÜL! ❤️</h1>
+        <h1 class="main-title">İYİ Kİ DOĞDUN CANIM ABLAM! ❤️</h1>
         <p class="subtitle">
             Bugün senin özel günün! Kalbimdeki tüm sevgi ve mutlulukla<br>
-            bu sürprizi senin için hazırladım...
+            bu sürprizi senin için hazırladım ablacığım...
         </p>
         <div class="birthday-cake">
             🎂🎁✨💖
@@ -735,7 +741,7 @@
         <div class="surprise-btn-container">
             <button class="surprise-btn" onclick="showSurprise()">
                 <i class="fas fa-gift"></i>
-                SÜRPRİZ BUTONUNA TIKLA! 🎁
+                ABLAM İÇİN SÜRPİZ BUTONU! 🎁
                 <i class="fas fa-gift"></i>
             </button>
         </div>
@@ -744,7 +750,7 @@
     <!-- BÜYÜK ZARF BÖLÜMÜ -->
     <section class="envelope-section">
         <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.8em; margin-bottom: 40px; color: var(--accent);">
-            Sana Özel Mektubum ✉️
+            Ablam'a Özel Mektubum ✉️
         </h2>
         
         <div class="envelope-container" onclick="toggleEnvelope()">
@@ -752,9 +758,9 @@
                 <div class="envelope-top"></div>
                 <div class="letter" id="letter">
                     <div class="letter-content">
-                        <h2>Sevgili Eylül,</h2>
+                        <h2>Canım Ablam,</h2>
                         <p>
-                            İyi ki doğdun canım ablam! Bugün senin günün ve tüm dünya seni kutluyor. 
+                            İyi ki doğdun ablacığım! Bugün senin günün ve tüm dünya seni kutluyor. 
                             Hayatıma kattığın her güzellik, verdiğin her destek, paylaştığımız her an 
                             benim için paha biçilmez değerde.
                         </p>
@@ -769,6 +775,11 @@
                             mutluluklarını paylaşmak benim için en büyük gurur.
                         </p>
                         <p>
+                            Ablam olmanın ötesinde, en iyi arkadaşımsın, sırdaşımsın, 
+                            her zaman yanımda olan destekçimsin. Zor zamanlarımda omuz veren, 
+                            mutlu anlarımda benimle gülen, her daim yanımda olan tek kişisin.
+                        </p>
+                        <p>
                             Bugün doğum günün! Umarım tüm hayallerin gerçek olur, 
                             umduğun her şeyden fazlasını bulursun. Çünkü sen bunu 
                             fazlasıyla hak ediyorsun.
@@ -779,7 +790,7 @@
                         </p>
                         <p class="signature-text">
                             İyi ki varsın, iyi ki benim ablamsın!<br>
-                            Seni çok seviyorum... ❤️
+                            Seni çok seviyorum ablacığım... ❤️
                         </p>
                         <p style="color: #ff3399; font-weight: bold; font-size: 1.6em; margin-top: 40px; font-family: 'Dancing Script', cursive;">
                             Seni her şeyden çok seven,<br>
@@ -790,33 +801,33 @@
             </div>
         </div>
         <p style="margin-top: 20px; font-size: 1.1em; color: var(--accent);">
-            Mektubu okumak için zarfa tıkla! 💌
+            Mektubu okumak için zarfa tıkla ablacığım! 💌
         </p>
     </section>
 
     <!-- KALP GALERİSİ -->
     <section class="heart-gallery">
-        <h2 class="gallery-title">Senin İçin Kalpler 💕</h2>
+        <h2 class="gallery-title">Ablam İçin Kalpler 💕</h2>
         <div class="heart-grid">
-            <div class="heart-item" onclick="showHeartMessage('Seni çok seviyorum Eylül! 💖')">
+            <div class="heart-item" onclick="showHeartMessage('Seni çok seviyorum ablacığım! 💖')">
                 <i class="fas fa-heart"></i>
                 <h3>Sevgi Kalbi</h3>
-                <p>Kalbimdeki tüm sevgi senin için</p>
+                <p>Kalbimdeki tüm sevgi senin için ablacığım</p>
             </div>
             <div class="heart-item" onclick="createHeartRain()">
                 <i class="fas fa-heartbeat"></i>
                 <h3>Kalp Yağmuru</h3>
-                <p>Gökyüzünden kalpler yağsın</p>
+                <p>Gökyüzünden ablama kalpler yağsın</p>
             </div>
             <div class="heart-item" onclick="showHeartMessage('Mutlu yıllar canım ablam! 🎉')">
                 <i class="fas fa-gift"></i>
                 <h3>Sürpriz Kalp</h3>
-                <p>Senin için özel sürpriz</p>
+                <p>Ablam için özel sürpriz</p>
             </div>
-            <div class="heart-item" onclick="showHeartMessage('Her zaman yanındayım Eylül! 🤗')">
+            <div class="heart-item" onclick="showHeartMessage('Her zaman yanındayım ablacığım! 🤗')">
                 <i class="fas fa-star"></i>
                 <h3>Parlak Kalp</h3>
-                <p>Işığın hiç sönmesin</p>
+                <p>Ablamın ışığı hiç sönmesin</p>
             </div>
         </div>
     </section>
@@ -824,28 +835,32 @@
     <!-- KUTLAMA BÖLÜMÜ -->
     <section class="celebration">
         <div class="celebration-hearts" id="celebrationHearts"></div>
-        <h2>🎂 Mutlu Yıllar Eylül! 🎂</h2>
+        <h2>🎂 Mutlu Yıllar Ablam! 🎂</h2>
         <div class="final-message">
             <p>
                 Bugün sadece bir doğum günü değil,<br>
-                senin gibi harika bir insanın dünyamıza katıldığı gün!<br><br>
+                senin gibi harika bir ablanın hayatıma katıldığı gün!<br><br>
                 
                 Her yeni yaşın daha mutlu, daha sağlıklı,<br>
                 daha başarılı ve daha güzel olsun.<br><br>
                 
                 Unutma ki sen ne kadar özelsen,<br>
-                hayatın da o kadar güzel olacak...<br><br>
+                hayatım da o kadar güzel olacak...<br><br>
+                
+                <span style="color: var(--accent); font-size: 1.2em;">
+                    İyi ki varsın ablacığım, iyi ki senin kardeşinim! 💝
+                </span>
             </p>
         </div>
         <div class="signature">
-            İyi ki doğdun Eylül! 💝
+            İyi ki doğdun canım ablam! 💝
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <p>Bu site sevgiden ve kalpten yapılmıştır 💕</p>
-        <p>© 2026 - Eylül İçin Hazırlandı</p>
+        <p>© 2026 - Canım Ablam İçin Hazırlandı</p>
     </footer>
 
     <script>
@@ -900,7 +915,7 @@
             }
         }
 
-        // SÜRPİZ BUTONU - AŞIRI HAVALI ANİMASYON
+        // SÜRPİZ BUTONU - ABLAM İÇİN ÖZEL
         function showSurprise() {
             const surpriseBtn = document.querySelector('.surprise-btn');
             const animationContainer = document.getElementById('surpriseAnimation');
@@ -908,7 +923,7 @@
             
             // Butonu devre dışı bırak
             surpriseBtn.disabled = true;
-            surpriseBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SÜRPRİZ YÜKLENİYOR...';
+            surpriseBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ABLAM İÇİN SÜRPRİZ HAZIRLANIYOR...';
             
             // Aşırı havalı animasyon başlat
             animationContainer.classList.add('active');
@@ -920,9 +935,9 @@
                 explosion.innerHTML = '💥';
                 animationContainer.appendChild(explosion);
                 
-                // 2. Emoji yağmuru
+                // 2. Emoji yağmuru - ABLAM TEMALI
                 setTimeout(() => {
-                    const emojis = ['🎁', '🎉', '✨', '💖', '🎂', '🥳', '🎊', '💝', '🌟', '💫'];
+                    const emojis = ['👩‍❤️‍👩', '💕', '🌸', '🎀', '👭', '💞', '🫂', '💖', '🌟', '✨'];
                     
                     for (let i = 0; i < 100; i++) {
                         setTimeout(() => {
@@ -937,7 +952,6 @@
                             
                             animationContainer.appendChild(emoji);
                             
-                            // 3 saniye sonra kaldır
                             setTimeout(() => {
                                 emoji.remove();
                             }, 3000);
@@ -951,7 +965,7 @@
                     document.body.style.animation = '';
                 }, 500);
                 
-                // 4. Konfeti efekti
+                // 4. Konfeti efekti - ABLAM İÇİN
                 createMegaConfetti();
                 
                 // 5. Modal göster
@@ -963,7 +977,7 @@
                 // 6. Butonu sıfırla
                 setTimeout(() => {
                     surpriseBtn.disabled = false;
-                    surpriseBtn.innerHTML = '<i class="fas fa-gift"></i> SÜRPRİZİ TEKRAR AÇ! 🎁 <i class="fas fa-gift"></i>';
+                    surpriseBtn.innerHTML = '<i class="fas fa-gift"></i> ABLAM İÇİN SÜRPİZİ TEKRAR AÇ! 🎁 <i class="fas fa-gift"></i>';
                     animationContainer.classList.remove('active');
                     animationContainer.innerHTML = '';
                 }, 3000);
@@ -985,10 +999,10 @@
             }
         }
 
-        // MEGA KONFETİ EFEKTİ
+        // MEGA KONFETİ EFEKTİ - ABLAM TEMALI
         function createMegaConfetti() {
-            const colors = ['#ff0066', '#ff3399', '#ff66b2', '#ffd700', '#00ff88', '#00ccff', '#9966ff'];
-            const shapes = ['❤️', '💖', '💝', '💕', '💗', '💓', '💞', '💘'];
+            const colors = ['#ff0066', '#ff3399', '#ff66b2', '#ffd700', '#ff99cc', '#ffb6c1', '#ffc0cb'];
+            const shapes = ['👩‍❤️‍👩', '💕', '🌸', '🎀', '👭', '💞', '🫂', '💖'];
             
             for (let i = 0; i < 200; i++) {
                 setTimeout(() => {
@@ -1014,7 +1028,6 @@
                 }, i * 20);
             }
             
-            // Konfeti düşüş animasyonu
             if (!document.querySelector('#confetti-fall')) {
                 const style = document.createElement('style');
                 style.id = 'confetti-fall';
@@ -1040,8 +1053,7 @@
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
             
-            // Teşekkür mesajı göster
-            showHeartMessage('Harikasın Eylül! Hediye için konuşalım! 💝');
+            showHeartMessage('Harikasın ablacığım! Hediye için konuşalım! 💝');
         }
 
         // KALP ANİMASYONU
@@ -1136,7 +1148,7 @@
                 document.head.appendChild(style);
             }
             
-            showHeartMessage('Kalp yağmuru başladı Eylül! 💖');
+            showHeartMessage('Ablama kalp yağmuru başladı! 💖');
         }
 
         // KALP MESAJI
@@ -1168,7 +1180,7 @@
                                background: white; border: none; 
                                border-radius: 20px; color: #ff0066; 
                                cursor: pointer; font-weight: bold;">
-                    Tamam
+                    Tamam Ablam
                 </button>
             `;
             
@@ -1214,6 +1226,10 @@
         window.onload = function() {
             createHeartBackground();
             startCountdown();
+            
+            // Arka plan yazısını güncelle
+            const bgText = document.querySelector('.bg-text span');
+            bgText.textContent = "İYİ Kİ DOĞDUN ABLAM";
             
             setTimeout(() => {
                 window.scrollTo({
