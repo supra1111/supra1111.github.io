@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İyi Ki Doğdun Ablam ❤️</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      color: #fff;
+      background: #000;
+    }
+    
+    /* YAĞMURLU ARKA PLAN */
+    .rain-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(to bottom, rgba(10, 20, 40, 0.9), rgba(5, 10, 30, 0.95)),
+        url('https://images.unsplash.com/photo-1519692933481-e162a57d6721?q=80&w=2070&auto=format&fit=crop') center/cover;
+      z-index: -2;
+      filter: brightness(0.8);
+    }
+    
+    /* YAĞMUR DAMLALARI */
+    .rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .rain-drop {
+      position: absolute;
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.6));
+      animation: fall linear infinite;
+    }
+    
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+    
+    /* ANA BAŞLIK - FULL EKRAN */
+    .main-header {
+      text-align: center;
+      padding: 100px 20px 60px;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .title-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .main-title {
+      font-size: 5.5em;
+      text-shadow: 
+        0 0 30px rgba(255, 255, 255, 0.8),
+        0 0 60px rgba(255, 107, 129, 0.6),
+        0 0 90px rgba(255, 62, 108, 0.4),
+        0 0 120px rgba(255, 62, 108, 0.2);
+      margin-bottom: 30px;
+      background: linear-gradient(45deg, 
+        #ff9a9e 0%, 
+        #fad0c4 25%, 
+        #fad0c4 50%, 
+        #a1c4fd 75%, 
+        #c2e9fb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 3s infinite alternate;
+      line-height: 1.2;
+      text-align: center;
+      padding: 0 20px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    @keyframes titleGlow {
+      0% {
+        text-shadow: 
+          0 0 30px rgba(255, 255, 255, 0.8),
+          0 0 60px rgba(255, 107, 129, 0.6),
+          0 0 90px rgba(255, 62, 108, 0.4);
+      }
+      100% {
+        text-shadow: 
+          0 0 40px rgba(255, 255, 255, 0.9),
+          0 0 80px rgba(255, 107, 129, 0.7),
+          0 0 120px rgba(255, 62, 108, 0.5),
+          0 0 160px rgba(255, 62, 108, 0.3);
+      }
+    }
+    
+    .subtitle {
+      font-size: 1.8em;
+      opacity: 0.95;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-top: 30px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      max-width: 800px;
+      line-height: 1.6;
+      padding: 0 30px;
+    }
+    
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5em;
+      color: #ffccd5;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+      text-shadow: 0 0 15px rgba(255, 204, 213, 0.5);
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+    
+    /* ZARF KISMI */
+    .envelope-container {
+      text-align: center;
+      margin: 100px auto;
+      position: relative;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    
+    .click-text {
+      margin-top: 25px;
+      font-size: 1.4em;
+      color: #ffccd5;
+      font-weight: 600;
+      text-shadow: 0 0 15px rgba(255, 204, 213, 0.5);
+    }
+    
+    .envelope {
+      position: relative;
+      width: 500px;
+      height: 320px;
+      background: linear-gradient(135deg, #ff6f91, #ff3f6c);
+      border-radius: 0 0 35px 35px;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 
+        0 35px 70px rgba(0, 0, 0, 0.6),
+        inset 0 0 40px rgba(255, 255, 255, 0.3);
+      margin: 0 auto;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    
+    .envelope:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 
+        0 45px 90px rgba(0, 0, 0, 0.7),
+        inset 0 0 50px rgba(255, 255, 255, 0.4);
+    }
+    
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff3f6c, #ff1e56);
+      clip-path: polygon(0 0, 100% 0, 50% 65%);
+      transform-origin: top;
+      transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      z-index: 3;
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .letter {
+      position: absolute;
+      bottom: -600px;
+      left: 25px;
+      width: calc(100% - 50px);
+      height: 600px;
+      background: linear-gradient(to bottom, #fff9fb, #ffe6ee);
+      border-radius: 30px;
+      padding: 50px;
+      box-sizing: border-box;
+      transition: all 1.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      z-index: 2;
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      overflow-y: auto;
+      box-shadow: 
+        0 15px 50px rgba(0, 0, 0, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.5);
+    }
+    
+    .envelope.open .flap {
+      transform: rotateX(180deg);
+    }
+    
+    .envelope.open .letter {
+      bottom: 30px;
+      opacity: 1;
+    }
+    
+    /* MEKTUP İÇERİĞİ */
+    .letter-content {
+      max-height: 500px;
+      overflow-y: auto;
+      padding-right: 20px;
+    }
+    
+    .letter-content::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    .letter-content::-webkit-scrollbar-track {
+      background: #ffe6ee;
+      border-radius: 10px;
+    }
+    
+    .letter-content::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, #ff3f6c, #ff1e56);
+      border-radius: 10px;
+      border: 2px solid #ffe6ee;
+    }
+    
+    .letter h1 {
+      color: #ff3f6c;
+      font-size: 2.8em;
+      margin-bottom: 40px;
+      text-align: center;
+      text-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(45deg, #ff3f6c, #ff1e56);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .letter p {
+      font-size: 1.4em;
+      line-height: 1.9;
+      color: #5a3d5c;
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 0 20px;
+    }
+    
+    .heart-icon {
+      font-size: 4.5em;
+      text-align: center;
+      margin: 40px 0;
+      color: #ff3f6c;
+      animation: heartbeat 1.5s infinite;
+      text-shadow: 0 0 25px rgba(255, 62, 108, 0.6);
+      filter: drop-shadow(0 0 10px rgba(255, 62, 108, 0.4));
+    }
+    
+    .signature {
+      font-weight: bold;
+      color: #ff3f6c;
+      margin-top: 40px;
+      text-align: center;
+      font-size: 1.8em;
+      font-style: italic;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      padding: 15px 30px;
+      background: rgba(255, 62, 108, 0.1);
+      border-radius: 20px;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* SÜRPİZ BÖLÜMÜ */
+    .wish-section {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(15px);
+      margin: 100px auto;
+      padding: 60px 40px;
+      max-width: 800px;
+      width: 90%;
+      border-radius: 35px;
+      text-align: center;
+      box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .wish-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, 
+        #ff3f6c, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb, #ff3f6c);
+      background-size: 400% 100%;
+      animation: gradientFlow 8s linear infinite;
+    }
+    
+    @keyframes gradientFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 400% 50%;
+      }
+    }
+    
+    .wish-section h2 {
+      color: #ffccd5;
+      margin-bottom: 40px;
+      font-size: 2.8em;
+      text-shadow: 
+        0 0 25px rgba(255, 204, 213, 0.7),
+        0 0 50px rgba(255, 62, 108, 0.4);
+    }
+    
+    .wish-text {
+      font-size: 1.5em;
+      color: #fff;
+      line-height: 1.8;
+      margin: 40px 0;
+      padding: 0 30px;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+    
+    .surprise-btn {
+      padding: 22px 60px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #ff3f6c, #ff1e56, #ff6f91);
+      color: white;
+      font-size: 1.4em;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 40px;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      box-shadow: 
+        0 10px 40px rgba(255, 62, 108, 0.5),
+        0 0 30px rgba(255, 62, 108, 0.3);
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 1px;
+    }
+    
+    .surprise-btn:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 
+        0 20px 60px rgba(255, 62, 108, 0.7),
+        0 0 50px rgba(255, 62, 108, 0.5);
+      letter-spacing: 2px;
+    }
+    
+    .surprise-btn:active {
+      transform: translateY(-4px) scale(1.02);
+    }
+    
+    .surprise-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: 0.6s;
+    }
+    
+    .surprise-btn:hover::after {
+      left: 100%;
+    }
+    
+    /* SÜRPİZ GÖSTERİM */
+    .surprise {
+      display: none;
+      margin: 100px auto;
+      text-align: center;
+      animation: fadeIn 1.2s ease;
+      max-width: 800px;
+      width: 90%;
+      padding: 60px 40px;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(20px);
+      border-radius: 40px;
+      box-shadow: 
+        0 25px 70px rgba(0, 0, 0, 0.35),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .surprise::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, 
+        #ff3f6c, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb, #ff3f6c);
+      background-size: 400% 400%;
+      z-index: -1;
+      animation: gradientBorder 6s ease infinite;
+      border-radius: 42px;
+    }
+    
+    @keyframes gradientBorder {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+    
+    .bear {
+      font-size: 9em;
+      margin-bottom: 40px;
+      animation: float 4s ease-in-out infinite;
+      text-shadow: 
+        0 0 40px rgba(255, 255, 255, 0.7),
+        0 0 80px rgba(255, 107, 129, 0.5);
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    }
+    
+    .flower {
+      font-size: 8em;
+      margin: 40px 0;
+      animation: rotate 10s linear infinite;
+      text-shadow: 
+        0 0 40px rgba(255, 255, 255, 0.7),
+        0 0 80px rgba(255, 107, 129, 0.5);
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    }
+    
+    .flower-text {
+      margin-top: 40px;
+      font-size: 2em;
+      font-weight: 700;
+      color: #ffccd5;
+      line-height: 1.6;
+      text-shadow: 
+        0 0 30px rgba(255, 204, 213, 0.8),
+        0 0 60px rgba(255, 62, 108, 0.6);
+      background: linear-gradient(45deg, #ffccd5, #ff9eb5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding: 20px;
+    }
+    
+    /* KUTLAMA MESAJLARI */
+    .celebration-messages {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 80px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+    
+    .message-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 40px 30px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.25),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .message-card:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.35),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    .message-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    
+    .message-card:hover::before {
+      transform: translateX(100%);
+    }
+    
+    .message-card i {
+      font-size: 3.5em;
+      margin-bottom: 25px;
+      color: #ffccd5;
+      text-shadow: 0 0 20px rgba(255, 204, 213, 0.5);
+    }
+    
+    .message-card h3 {
+      color: #ffccd5;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      text-shadow: 0 0 15px rgba(255, 204, 213, 0.5);
+    }
+    
+    .message-card p {
+      color: rgba(255, 255, 255, 0.95);
+      opacity: 0.9;
+      line-height: 1.7;
+      font-size: 1.1em;
+      font-weight: 300;
+    }
+    
+    /* Footer */
+    footer {
+      margin-top: 100px;
+      padding: 50px 30px;
+      color: #ffccd5;
+      font-weight: 600;
+      text-align: center;
+      width: 100%;
+      font-size: 1.3em;
+      background: rgba(0, 0, 0, 0.4);
+      text-shadow: 0 0 20px rgba(255, 204, 213, 0.6);
+      border-top: 3px solid rgba(255, 255, 255, 0.1);
+      letter-spacing: 1px;
+    }
+    
+    /* ANİMASYONLAR */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-30px);
+      }
+    }
+    
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+    
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .main-title {
+        font-size: 4.5em;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .main-title {
+        font-size: 3.8em;
+      }
+      
+      .envelope {
+        width: 450px;
+        height: 300px;
+      }
+      
+      .letter {
+        height: 550px;
+        padding: 40px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .main-header {
+        padding: 80px 15px 40px;
+        min-height: 90vh;
+      }
+      
+      .main-title {
+        font-size: 3em;
+        padding: 0 15px;
+      }
+      
+      .subtitle {
+        font-size: 1.4em;
+        padding: 0 20px;
+      }
+      
+      .envelope {
+        width: 380px;
+        height: 280px;
+      }
+      
+      .letter {
+        height: 500px;
+        padding: 30px;
+      }
+      
+      .letter h1 {
+        font-size: 2.2em;
+      }
+      
+      .letter p {
+        font-size: 1.2em;
+      }
+      
+      .bear {
+        font-size: 6em;
+      }
+      
+      .flower {
+        font-size: 5.5em;
+      }
+      
+      .surprise-btn {
+        padding: 18px 45px;
+        font-size: 1.2em;
+      }
+      
+      .message-card {
+        width: 300px;
+        padding: 30px 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .main-title {
+        font-size: 2.5em;
+      }
+      
+      .subtitle {
+        font-size: 1.2em;
+      }
+      
+      .envelope {
+        width: 320px;
+        height: 250px;
+      }
+      
+      .letter {
+        height: 450px;
+        padding: 25px;
+      }
+      
+      .letter h1 {
+        font-size: 1.9em;
+      }
+      
+      .letter p {
+        font-size: 1.1em;
+      }
+      
+      .bear {
+        font-size: 4.5em;
+      }
+      
+      .flower {
+        font-size: 4em;
+      }
+    }
+    
+    /* SCROLL DAVRANIŞI */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- YAĞMURLU ARKA PLAN -->
+  <div class="rain-background"></div>
+  <div class="rain" id="rain"></div>
+  
+  <!-- ANA BAŞLIK - TAM EKRAN -->
+  <div class="main-header">
+    <div class="title-container">
+      <h1 class="main-title">İYİ Kİ DOĞDUN CANIM ABLAM ❤️</h1>
+      <p class="subtitle">
+        Bu özel günde, senin için hazırladığım bu küçük sürprizle<br>
+        kalbimdeki tüm sevgiyi ve minnettarlığı ifade etmek istedim...
+      </p>
+    </div>
+    <div class="scroll-indicator" onclick="scrollToEnvelope()">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </div>
+  
+  <!-- ZARF KISMI -->
+  <div class="envelope-container" id="envelopeSection">
+    <div class="envelope" id="envelope">
+      <div class="flap"></div>
+      <div class="letter">
+        <div class="letter-content">
+          <h1>İyi Ki Doğdun Canım Ablam ❤️</h1>
+          <p>
+            Canım ablam,<br><br>
+            Bu hayatta başıma gelen en güzel şeylerden biri sensin.
+            Her zorluğun üstesinden gelişin, her durumda gülümsemen,
+            içindeki sonsuz sevgi ve şefkat beni hep etkilemiştir.
+          </p>
+          <p>
+            Seninle geçirdiğim her an değerli, her hatıra hazinedir.
+            Hayatıma kattığın renk, sevgi ve anlam için sana minnettarım.
+            Gücünle, kalbinle ve gülüşünle her şeyi güzelleştiriyorsun.
+          </p>
+          <p>
+            Bugün senin günün! Umarım hayallerin gerçek olur,
+            umduğun her şeyden fazlasını bulursun. Sen bunu hak ediyorsun.
+            İyi ki varsın, iyi ki benim ablamsın.
+          </p>
+          <div class="heart-icon">🌹</div>
+          <p class="signature">Seni her şeyden çok seven kardeşin</p>
+        </div>
+      </div>
+    </div>
+    <p class="click-text">Zarfı açmak için tıkla ✉️</p>
+  </div>
+  
+  <!-- KUTLAMA MESAJLARI -->
+  <div class="celebration-messages">
+    <div class="message-card">
+      <i class="fas fa-heart"></i>
+      <h3>Sevgi Dolu</h3>
+      <p>Kalbin her zaman sevgiyle dolsun, etrafına ışık saçmaya devam et.</p>
+    </div>
+    
+    <div class="message-card">
+      <i class="fas fa-star"></i>
+      <h3>Parlak Yıldız</h3>
+      <p>Hayatımızdaki parlak yıldız, her zaman ışıldamaya devam et.</p>
+    </div>
+    
+    <div class="message-card">
+      <i class="fas fa-birthday-cake"></i>
+      <h3>Mutlu Yıllar</h3>
+      <p>Nice mutlu, sağlıklı ve başarı dolu yıllara canım ablam.</p>
+    </div>
+  </div>
+  
+  <!-- SÜRPİZ BÖLÜMÜ -->
+  <div class="wish-section">
+    <h2>🎂 Doğum Günü Dileği</h2>
+    <p class="wish-text">
+      Dilerim tüm hayallerin bir bir gerçekleşir,<br>
+      kalbin hep sevgiyle dolsun,<br>
+      ve her zaman yüzün bu gülümsemeyle aydınlansın ✨
+    </p>
+    <button class="surprise-btn" onclick="showSurprise()">
+      <i class="fas fa-gift"></i> Sürprize Tıkla
+    </button>
+  </div>
+  
+  <!-- SÜRPİZ GÖSTERİM -->
+  <div class="surprise" id="surprise">
+    <div class="bear">🧸</div>
+    <div class="flower">🌸</div>
+    <div class="flower-text">Bu çiçek sana<br><strong>Canım Ablam</strong> 💖</div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    Bu site sevgiyle ve yağmurun romantizmiyle hazırlandı 💕
+  </footer>
+  
+  <script>
+    // YAĞMUR DAMLALARI OLUŞTUR
+    function createRain() {
+      const rainContainer = document.getElementById('rain');
+      const dropCount = 200;
+      
+      for (let i = 0; i < dropCount; i++) {
+        const drop = document.createElement('div');
+        drop.classList.add('rain-drop');
+        
+        // Rastgele pozisyon
+        drop.style.left = Math.random() * 100 + 'vw';
+        drop.style.height = Math.random() * 40 + 40 + 'px';
+        
+        // Rastgele animasyon süresi
+        const duration = Math.random() * 1 + 0.5;
+        drop.style.animationDuration = duration + 's';
+        
+        // Rastgele gecikme
+        drop.style.animationDelay = Math.random() * 2 + 's';
+        
+        // Rastgele opaklık
+        drop.style.opacity = Math.random() * 0.6 + 0.3;
+        
+        rainContainer.appendChild(drop);
+      }
+    }
+    
+    // SCROLL FONKSİYONU
+    function scrollToEnvelope() {
+      document.getElementById('envelopeSection').scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+    
+    // ZARF İŞLEMLERİ
+    const envelope = document.getElementById('envelope');
+    const clickText = document.querySelector('.click-text');
+    
+    envelope.addEventListener('click', function() {
+      this.classList.toggle('open');
+      
+      if (this.classList.contains('open')) {
+        clickText.innerHTML = '<i class="fas fa-book-open"></i> Mektubu okumak için tekrar tıkla';
+        clickText.style.color = '#ff9eb5';
+      } else {
+        clickText.innerHTML = '<i class="fas fa-envelope"></i> Zarfı açmak için tıkla';
+        clickText.style.color = '#ffccd5';
+      }
+    });
+    
+    // SÜRPİZ BUTONU
+    function showSurprise() {
+      const surpriseElement = document.getElementById('surprise');
+      const button = document.querySelector('.surprise-btn');
+      
+      // Sürprizi göster
+      surpriseElement.style.display = 'block';
+      
+      // Butonu güncelle
+      button.innerHTML = '<i class="fas fa-check"></i> Sürpriz Açıldı!';
+      button.style.background = 'linear-gradient(45deg, #4CAF50, #2E7D32, #388E3C)';
+      button.style.cursor = 'default';
+      button.onclick = null;
+      button.style.transform = 'translateY(0) scale(1)';
+      button.style.boxShadow = '0 10px 40px rgba(76, 175, 80, 0.5)';
+      
+      // Animasyon
+      surpriseElement.style.animation = 'fadeIn 1.2s ease';
+      
+      // Konfeti efekti
+      createConfetti();
+      
+      // Sayfayı kaydır
+      setTimeout(() => {
+        surpriseElement.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }, 300);
+      
+      // Müzik efekti (simülasyon)
+      playCelebrationSound();
+    }
+    
+    // KONFETİ EFEKTİ
+    function createConfetti() {
+      const confettiCount = 100;
+      const emojis = ['🎉', '🎊', '✨', '❤️', '🌸', '🎂', '🥳', '🎁', '💝', '🎈', '💖', '🌟', '🌹', '💐'];
+      
+      for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+        confetti.style.position = 'fixed';
+        confetti.style.fontSize = Math.random() * 30 + 25 + 'px';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.top = '-100px';
+        confetti.style.opacity = '0.9';
+        confetti.style.zIndex = '9999';
+        confetti.style.pointerEvents = 'none';
+        confetti.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+        
+        // Rastgele animasyon
+        const animationDuration = Math.random() * 3 + 2;
+        const animationDelay = Math.random() * 1;
+        const translateX = (Math.random() - 0.5) * 200;
+        
+        confetti.style.animation = `
+          confettiFall ${animationDuration}s ${animationDelay}s linear forwards
+        `;
+        
+        confetti.style.setProperty('--translate-x', `${translateX}px`);
+        confetti.style.setProperty('--rotate', `${Math.random() * 720}deg`);
+        
+        document.body.appendChild(confetti);
+        
+        // Animasyon bitince kaldır
+        setTimeout(() => {
+          if (confetti.parentNode) {
+            confetti.remove();
+          }
+        }, (animationDuration + animationDelay) * 1000);
+      }
+      
+      // Animasyonları ekle
+      if (!document.querySelector('#confetti-styles')) {
+        const style = document.createElement('style');
+        style.id = 'confetti-styles';
+        style.textContent = `
+          @keyframes confettiFall {
+            0% {
+              transform: translateY(0) translateX(0) rotate(0deg);
+              opacity: 1;
+            }
+            100% {
+              transform: translateY(110vh) translateX(var(--translate-x)) rotate(var(--rotate));
+              opacity: 0;
+            }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    }
+    
+    // KUTLAMA SESİ (simülasyon)
+    function playCelebrationSound() {
+      // Bu kısım gerçek ses dosyası eklemek için
+      console.log('🎵 Kutlama müziği çalınıyor...');
+      
+      // Eğer ses dosyası eklemek istersen:
+      // const audio = new Audio('celebration.mp3');
+      // audio.volume = 0.3;
+      // audio.play();
+    }
+    
+    // SAYFA YÜKLENDİĞİNDE
+    window.addEventListener('load', function() {
+      createRain();
+      
+      // Başlık animasyonu
+      document.querySelector('.main-header').style.animation = 'fadeIn 2s ease';
+      
+      // Karşılama mesajı
+      setTimeout(() => {
+        const welcomeMessages = [
+          "İyi ki doğdun canım ablam! 🎂",
+          "Bu özel günün kutlu olsun! 🌟",
+          "Seni çok seviyorum! ❤️",
+          "Nice mutlu yıllara! 🥳"
+        ];
+        
+        const randomMessage = welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)];
+        console.log(`%c${randomMessage}`, 
+          'color: #ff3f6c; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
